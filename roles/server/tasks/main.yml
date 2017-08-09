@@ -1,0 +1,8 @@
+---
+- name: Install required software
+  yum: name={{ item }} state=present
+  with_items:
+    - httpd
+    - mysql
+- name: restart apache
+  service: name=httpd state=restarted
